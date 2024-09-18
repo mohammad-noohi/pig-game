@@ -8,6 +8,8 @@ const rollBtn = $(".btn--roll");
 const holdBtn = $(".btn--hold");
 const player0 = $(".player--0");
 const player1 = $(".player--1");
+const name0 = $(".name--0");
+const name1 = $(".name--1");
 const score0El = $(".score--0");
 const score1El = $(".score--1");
 const current0El = $(".current--0");
@@ -16,7 +18,7 @@ const current1El = $(".current--1");
 let currentScore = 0;
 let acitvePlayer = 0;
 let scores = [0, 0];
-let playing = true;
+let playing = false;
 
 /*================================= Functions =================================*/
 
@@ -34,7 +36,6 @@ function init() {
   currentScore = 0;
   acitvePlayer = 0;
   scores = [0, 0];
-  playing = true;
   diceEl.classList.add("hidden");
   score0El.textContent = 0;
   score1El.textContent = 0;
@@ -42,6 +43,32 @@ function init() {
   current1El.textContent = 0;
   player0.classList.remove("player--winner");
   player1.classList.remove("player--winner");
+  Swal.fire({
+    title: "player 1",
+    text: "write your name :",
+    input: "text",
+    inputAttributes: {
+      placeholder: "your name",
+    },
+  }).then(resp => {
+    if (resp.isConfirmed && resp.value.length > 0) {
+      name0.textContent = resp.value;
+
+      Swal.fire({
+        title: "player 2",
+        text: "write your name :",
+        input: "text",
+        inputAttributes: {
+          placeholder: "your name",
+        },
+      }).then(resp => {
+        if (resp.isConfirmed && resp.value.length > 0) {
+          name1.textContent = resp.value;
+          playing = true;
+        }
+      });
+    }
+  });
 }
 
 function switchPlayer() {

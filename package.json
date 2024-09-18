@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mohammad-noohi/pig-game/issues"
   },
-  "homepage": "https://github.com/mohammad-noohi/pig-game#readme"
+  "homepage": "https://github.com/mohammad-noohi/pig-game#readme",
+  "dependencies": {
+    "sweetalert2": "^11.14.0"
+  }
 }

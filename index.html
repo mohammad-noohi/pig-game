@@ -6,6 +6,8 @@
     <title>Pig Game</title>
     <!-- favicon -->
     <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <!-- sweetalert css -->
+    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.css" />
     <!-- style.css file -->
     <link rel="stylesheet" href="./src/css/style.css" />
   </head>
@@ -27,10 +29,10 @@
             </div>
           </div>
 
-          <button class="btn btn--new"><span class="btn-icon">🔃</span> new game</button>
+          <button class="btn btn--new"><span class="btn-icon">🔃</span><span class="btn-text">new game</span></button>
           <img class="dice" src="./src/images/dice-5.png" alt="dice" />
-          <button class="btn btn--roll"><span class="btn-icon">🎲</span> roll dice</button>
-          <button class="btn btn--hold"><span class="btn-icon">📥</span> hold</button>
+          <button class="btn btn--roll"><span class="btn-icon">🎲</span><span class="btn-text">roll dice</span></button>
+          <button class="btn btn--hold"><span class="btn-icon">📥</span><span class="btn-text">hold</span></button>
 
           <div class="player player--1">
             <h3 class="name name--1">player 2</h3>
@@ -43,6 +45,8 @@
         </section>
       </div>
     </main>
+    <!-- sweetalert js -->
+    <script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
     <!-- index.js file -->
     <script src="./src/js/index.js"></script>
   </body>
