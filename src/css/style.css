@@ -266,7 +266,7 @@ div:where(.swal2-container) div:where(.swal2-popup) {
   }
 
   .btn--new {
-    left: 25%;
+    left: 15%;
   }
 
   .btn-text {
@@ -278,11 +278,11 @@ div:where(.swal2-container) div:where(.swal2-popup) {
   }
 
   .btn--hold {
-    left: 75%;
+    left: 90%;
   }
 
   .btn--roll {
-    left: 50%;
+    left: 73%;
   }
 
   .dice {
