@@ -107,7 +107,7 @@ holdBtn.addEventListener("click", () => {
     if (currentScore > 0) {
       scores[acitvePlayer] += currentScore;
       document.querySelector(`.score--${acitvePlayer}`).textContent = scores[acitvePlayer];
-      if (scores[acitvePlayer] >= 20) {
+      if (scores[acitvePlayer] >= 100) {
         // if one of the player win the game
         document.querySelector(`.player--${acitvePlayer}`).classList.add("player--winner");
         console.log(`player ${acitvePlayer} won the game`);
