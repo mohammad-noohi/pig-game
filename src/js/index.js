@@ -30,14 +30,33 @@ function $$(selector) {
   return document.querySelector(selector);
 }
 
+function init() {
+  currentScore = 0;
+  acitvePlayer = 0;
+  scores = [0, 0];
+  playing = true;
+  diceEl.classList.add("hidden");
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+  player0.classList.remove("player--winner");
+  player1.classList.remove("player--winner");
+}
+
+function switchPlayer() {
+  acitvePlayer = acitvePlayer ? 0 : 1;
+  player0.classList.remove("player--active");
+  player1.classList.remove("player--active");
+  $(`.player--${acitvePlayer}`).classList.add("player--active");
+  currentScore = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+}
+
 /*==================================== Events ====================================*/
 
-// Start condition
-diceEl.classList.add("hidden");
-score0El.textContent = 0;
-score1El.textContent = 0;
-current0El.textContent = 0;
-current1El.textContent = 0;
+init();
 
 rollBtn.addEventListener("click", () => {
   if (playing) {
@@ -50,56 +69,28 @@ rollBtn.addEventListener("click", () => {
       currentScore += randomDice;
       $(`.current--${acitvePlayer}`).textContent = currentScore;
     } else {
-      // switch player
-      acitvePlayer = acitvePlayer ? 0 : 1;
-      player0.classList.remove("player--active");
-      player1.classList.remove("player--active");
-      $(`.player--${acitvePlayer}`).classList.add("player--active");
-      currentScore = 0;
-      current0El.textContent = 0;
-      current1El.textContent = 0;
+      switchPlayer();
     }
   }
 });
 
 holdBtn.addEventListener("click", () => {
   if (playing) {
+    // اگر اشتباهی دستش روی دکمه خورد عوض نشه و حداقل یه بار تاس انداخته باشه
     if (currentScore > 0) {
-      // اگر اشتباهی دستش روی دکمه خورد عوض نشه و حداقل یه بار تاس انداخته باشه
       scores[acitvePlayer] += currentScore;
       document.querySelector(`.score--${acitvePlayer}`).textContent = scores[acitvePlayer];
       if (scores[acitvePlayer] >= 20) {
-        // اگر برنده داشتیم که بازی باید تمام بشه
+        // if one of the player win the game
         document.querySelector(`.player--${acitvePlayer}`).classList.add("player--winner");
-        // console.log(document.querySelector(`.player--${acitvePlayer}`));
         console.log(`player ${acitvePlayer} won the game`);
         playing = false;
       } else {
-        // اگر برنده ای نداشت عوضش کن
-        // switch player
-        acitvePlayer = acitvePlayer ? 0 : 1;
-        player0.classList.remove("player--active");
-        player1.classList.remove("player--active");
-        $(`.player--${acitvePlayer}`).classList.add("player--active");
-        currentScore = 0;
-        current0El.textContent = 0;
-        current1El.textContent = 0;
+        // if we had no winners
+        switchPlayer();
       }
     }
   }
 });
 
-newBtn.addEventListener("click", () => {
-  console.log("new game");
-  currentScore = 0;
-  acitvePlayer = 0;
-  scores = [0, 0];
-  playing = true;
-  diceEl.classList.add("hidden");
-  score0El.textContent = 0;
-  score1El.textContent = 0;
-  current0El.textContent = 0;
-  current1El.textContent = 0;
-  player0.classList.remove("player--winner");
-  player1.classList.remove("player--winner");
-});
+newBtn.addEventListener("click", init);
