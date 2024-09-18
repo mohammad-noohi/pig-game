@@ -34,6 +34,11 @@ body {
   padding: 0 15px;
 }
 
+/* reset sweetalert style */
+div:where(.swal2-container) div:where(.swal2-popup) {
+  font-size: inherit !important;
+}
+
 /* helper classes */
 .btn {
   position: absolute;
@@ -59,10 +64,10 @@ body {
   gap: 0.4rem;
 }
 
-.btn:active {
+/* .btn:active {
   transform: translate(-50%, 3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-}
+} */
 
 .hidden {
   display: none;
@@ -252,31 +257,32 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 1.4rem;
-    width: 10rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
     text-align: center;
-    top: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .btn--new {
-    transform: translate(0, -50%);
-    top: 50%;
-    left: 5%;
-    margin-bottom: 1rem;
+    left: 25%;
   }
 
-  .btn-icon {
+  .btn-text {
     display: none;
   }
 
+  .btn-icon {
+    font-size: 2rem;
+  }
+
   .btn--hold {
-    width: 8rem;
-    top: 52%;
-    left: 85%;
+    left: 75%;
   }
 
   .btn--roll {
-    top: 43%;
-    left: 85%;
+    left: 50%;
   }
 
   .dice {
