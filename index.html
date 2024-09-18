@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pig Game</title>
+    <!-- favicon -->
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <!-- style.css file -->
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">pig game !!</h1>
+      <h2 class="header__text">get 100 points and win the game</h2>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <section class="app">
+          <div class="player player--0 player--active">
+            <h3 class="name name--0">player 1</h3>
+            <p class="score score--0">44</p>
+            <div class="current">
+              <p class="current-label">current</p>
+              <p class="current-score current--0">12</p>
+            </div>
+          </div>
+
+          <button class="btn btn--new"><span class="btn-icon">🔃</span> new game</button>
+          <img class="dice" src="./src/images/dice-5.png" alt="dice" />
+          <button class="btn btn--roll"><span class="btn-icon">🎲</span> roll dice</button>
+          <button class="btn btn--hold"><span class="btn-icon">📥</span> hold</button>
+
+          <div class="player player--1">
+            <h3 class="name name--1">player 2</h3>
+            <p class="score score--1">34</p>
+            <div class="current">
+              <p class="current-label">current</p>
+              <p class="current-score current--1">9</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- index.js file -->
+    <script src="./src/js/index.js"></script>
+  </body>
+</html>

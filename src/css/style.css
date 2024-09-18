@@ -1,0 +1,313 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+/* Variables */
+:root {
+  --red-color: #c7365f;
+  --whit-color: #fff;
+}
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Nunito", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background-image: linear-gradient(to top left, #753682, #bf2e34);
+  height: 100svh;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* helper classes */
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #444;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.hidden {
+  display: none;
+}
+
+/*================================ Header ================================*/
+.header {
+  color: var(--whit-color);
+  height: 20svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  user-select: none;
+}
+
+.header__title {
+  font-size: 5rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.header__text {
+  font-size: 1.8rem;
+}
+
+/*================================ Main ================================*/
+
+.main {
+}
+
+.app {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  display: flex;
+  user-select: none;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.player {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10rem 2rem;
+}
+
+.player.player--winner {
+  background-color: #222222;
+  color: #fff;
+}
+
+.player--0 {
+  /* background-color: green; */
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.player--1 {
+  /* background-color: gray; */
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+.player--active .name {
+  font-weight: 700;
+}
+
+.score {
+  font-size: 8rem;
+  color: var(--red-color);
+  font-weight: 800;
+}
+
+.current {
+  background-color: var(--red-color);
+  color: #fff;
+  padding: 1rem 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.current-label {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.current-score {
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.dice {
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  transform: translate(-50%);
+  width: 10rem;
+  height: 10rem;
+  box-shadow: 0px 2rem 5rem rgb(0 0 0 / 25%);
+}
+
+.btn--new {
+  top: 8dvh;
+}
+
+.btn--roll {
+  top: 65%;
+}
+
+.btn--hold {
+  top: 80%;
+}
+
+/*=============================== Responsive ===============================*/
+@media screen and (max-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .name {
+    font-size: 3.5rem;
+  }
+
+  .score {
+    font-size: 6rem;
+  }
+
+  .dice {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .btn {
+    font-size: 1.6rem;
+    padding: 0.3rem 1rem;
+  }
+
+  .current {
+    padding: 1rem 3rem;
+  }
+
+  .current-score {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+
+  /* just for test */
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    width: 10rem;
+    text-align: center;
+    top: 0;
+  }
+
+  .btn--new {
+    transform: translate(0, -50%);
+    top: 50%;
+    left: 5%;
+    margin-bottom: 1rem;
+  }
+
+  .btn-icon {
+    display: none;
+  }
+
+  .btn--hold {
+    width: 8rem;
+    top: 52%;
+    left: 85%;
+  }
+
+  .btn--roll {
+    top: 43%;
+    left: 85%;
+  }
+
+  .dice {
+    width: 5rem;
+    height: 5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .app {
+    flex-direction: column;
+  }
+
+  .player {
+    padding: 4rem 0;
+  }
+
+  .name {
+    font-size: 3rem;
+  }
+
+  .score {
+    font-size: 4rem;
+  }
+
+  .current-label {
+    font-size: 1.2rem;
+  }
+
+  .current-score {
+    font-size: 2rem;
+  }
+}
